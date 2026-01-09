@@ -28,6 +28,15 @@ window.TRIP_DATA = {
       "name": "Sanath",
       "phone": "+64272251567"
     }
+    ,
+    {
+      "name": "Nadee",
+      "phone": "+642102394564"
+    },
+    {
+      "name": "Nadeesha",
+      "phone": "+64266820853"
+    }
   ],
   "stops": [
     {
