@@ -6,232 +6,114 @@
 <title>New Plymouth Lights Trip Plan</title>
 
 <style>
-:root{
-  --bg:#0b1020;
-  --card:#121836;
-  --text:#eef2ff;
-  --muted:#a5b4fc;
-  --accent:#7dd3fc;
-  --accent2:#a78bfa;
-  --good:#34d399;
-  --warn:#fbbf24;
-  --border:#1f2a5a;
-  --radius:16px;
-  --sans: system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
-}
-*{box-sizing:border-box}
 body{
   margin:0;
-  font-family:var(--sans);
-  background:linear-gradient(180deg,#050814,var(--bg));
-  color:var(--text);
+  font-family:system-ui,Segoe UI,Roboto,Arial;
+  background:#0b1020;
+  color:#eef2ff;
 }
-.wrap{max-width:1100px;margin:auto;padding:20px}
+.wrap{max-width:1000px;margin:auto;padding:20px}
 .card{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
+  background:#121836;
+  border:1px solid #1f2a5a;
+  border-radius:14px;
   padding:18px;
   margin-bottom:18px;
 }
-h1{margin:0;font-size:28px}
-h2{margin:0 0 12px;font-size:18px}
-.sub{color:var(--muted);margin-top:6px}
-.contacts{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-.contact{
-  background:#0f172a;
-  border:1px solid var(--border);
-  padding:10px 14px;
+h1,h2{margin:0 0 10px}
+.sub{color:#a5b4fc}
+.contacts a{
+  display:inline-block;
+  margin:6px 6px 0 0;
+  padding:8px 12px;
   border-radius:999px;
-  color:var(--text);
+  background:#0f172a;
+  border:1px solid #1f2a5a;
+  color:#eef2ff;
   text-decoration:none;
   font-weight:600;
 }
-.section{margin-top:28px}
-.timeline details{
-  background:#0f172a;
-  border:1px solid var(--border);
-  border-radius:14px;
-  margin-bottom:12px;
-}
-.timeline summary{
-  cursor:pointer;
-  padding:14px;
-  display:flex;
-  gap:12px;
-}
-.timeline summary::-webkit-details-marker{display:none}
-.dot{
-  width:12px;height:12px;border-radius:50%;margin-top:6px;
-}
-.dot.good{background:var(--good)}
-.dot.purple{background:var(--accent2)}
-.dot.warn{background:var(--warn)}
-.main{flex:1}
-.time{font-weight:800}
-.place{font-weight:700;margin-top:2px}
-.small{color:var(--muted);font-size:13px;margin-top:4px}
-.body{padding:0 14px 14px;color:var(--muted)}
-.imgRow{
-  display:grid;
-  grid-template-columns:180px 1fr;
-  gap:14px;
+img{
+  width:100%;
+  border-radius:12px;
+  border:1px solid #1f2a5a;
   margin-top:10px;
 }
-@media(max-width:640px){
-  .imgRow{grid-template-columns:1fr}
-}
-.photo{
-  width:100%;
-  height:120px;
-  object-fit:cover;
-  border-radius:12px;
-  border:1px solid var(--border);
-}
-.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
 .btn{
-  background:#0b122e;
-  border:1px solid var(--border);
-  color:var(--text);
+  display:inline-block;
+  margin-top:10px;
   padding:10px 14px;
   border-radius:12px;
+  background:#0f172a;
+  border:1px solid #1f2a5a;
+  color:#eef2ff;
   text-decoration:none;
   font-weight:600;
 }
-.btn:hover{background:#131c44}
-.mapWrap{
-  border-radius:var(--radius);
-  overflow:hidden;
-  border:1px solid var(--border);
+iframe{
+  width:100%;
+  height:380px;
+  border:0;
+  border-radius:14px;
 }
-iframe{width:100%;height:420px;border:0}
 </style>
 </head>
 
 <body>
 <div class="wrap">
 
-<!-- HEADER -->
 <div class="card">
   <h1>🌟 New Plymouth Lights Trip Plan</h1>
-  <div class="sub">1 night · 2 days · Directions start from your current location</div>
+  <div class="sub">1 night · 2 days · Directions use your current location</div>
 
   <div class="contacts">
-    <a class="contact" href="tel:+64276292070">📞 Gayani</a>
-    <a class="contact" href="tel:0212953829">📞 Roshan</a>
-    <a class="contact" href="tel:+64274445156">📞 Asitha</a>
-    <a class="contact" href="tel:+64272251567">📞 Sanath</a>
+    <a href="tel:+64276292070">📞 Gayani</a>
+    <a href="tel:0212953829">📞 Roshan</a>
+    <a href="tel:+64274445156">📞 Asitha</a>
+    <a href="tel:+64272251567">📞 Sanath</a>
   </div>
 </div>
 
-<!-- MAP -->
-<div class="section">
-  <h2>🗺️ Full Trip Map</h2>
-  <div class="mapWrap">
-    <!-- No API key required -->
-    <iframe
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-      src="https://www.google.com/maps/dir/?api=1
-      &origin=Current+Location
-      &destination=Palmerston+North+New+Zealand
-      &waypoints=Bason+Botanic+Gardens+Whanganui|Hollard+Gardens+Kaponga|2+Kerry+Lane+Hawera|Pukekura+Park+New+Plymouth|King+Edward+Park+Hawera|Shane's+Greenhouses+Whanganui
-      &travelmode=driving">
-    </iframe>
-  </div>
-  <div class="sub" style="margin-top:8px">
-    Distance and travel time are shown directly inside Google Maps.
-  </div>
+<div class="card">
+  <h2>🗺️ Map Overview</h2>
+  <iframe
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    src="https://www.google.com/maps?q=Pukekura+Park+New+Plymouth+New+Zealand&output=embed">
+  </iframe>
+
+  <a class="btn" target="_blank"
+     href="https://www.google.com/maps/dir/?api=1
+     &origin=Current+Location
+     &destination=Palmerston+North+New+Zealand
+     &waypoints=Bason+Botanic+Gardens+Whanganui|Hollard+Gardens+Kaponga|2+Kerry+Lane+Hawera|Pukekura+Park+New+Plymouth|King+Edward+Park+Hawera|Shane's+Greenhouses+Whanganui">
+     ➡️ Open Full Trip Route in Google Maps
+  </a>
 </div>
 
-<!-- TIMELINE -->
-<div class="section timeline">
-<h2>🗓️ Trip Timeline</h2>
-
-<details open>
-<summary>
-  <div class="dot good"></div>
-  <div class="main">
-    <div class="time">Day 1 – Morning</div>
-    <div class="place">Bason Botanic Gardens (Whanganui)</div>
-    <div class="small">Picnic brunch stop</div>
-  </div>
-</summary>
-<div class="body">
-  <div class="imgRow">
-    <img class="photo" src="https://upload.wikimedia.org/wikipedia/commons/8/83/Bason_Botanic_Gardens_Whanganui.jpg">
-    <div>
-      Calm gardens, ideal for all ages.
-      <div class="btns">
-        <a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Bason+Botanic+Gardens+Whanganui">🗺️ Open Map</a>
-        <a class="btn" target="_blank" href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=Bason+Botanic+Gardens+Whanganui">➡️ Directions</a>
-      </div>
-    </div>
-  </div>
+<div class="card">
+  <h2>Bason Botanic Gardens</h2>
+  <img src="images/bason.jpg" alt="Bason Botanic Gardens">
 </div>
-</details>
 
-<details>
-<summary>
-  <div class="dot purple"></div>
-  <div class="main">
-    <div class="time">Day 1 – Afternoon</div>
-    <div class="place">Hollard Gardens (Kaponga)</div>
-    <div class="small">Relaxed scenic stop</div>
-  </div>
-</summary>
-<div class="body">
-  <div class="imgRow">
-    <img class="photo" src="https://upload.wikimedia.org/wikipedia/commons/3/36/Hollard_Gardens_Kaponga.jpg">
-    <div>
-      Peaceful, flat gardens.
-    </div>
-  </div>
+<div class="card">
+  <h2>Hollard Gardens</h2>
+  <img src="images/hollard.jpg" alt="Hollard Gardens">
 </div>
-</details>
 
-<details>
-<summary>
-  <div class="dot warn"></div>
-  <div class="main">
-    <div class="time">Day 1 – Optional</div>
-    <div class="place">Hāwera Water Tower</div>
-    <div class="small">Quick photo stop</div>
-  </div>
-</summary>
-<div class="body">
-  <img class="photo" src="https://upload.wikimedia.org/wikipedia/commons/9/91/Hawera_Water_Tower_%28Taranaki%2C_NZ%29.jpg">
+<div class="card">
+  <h2>Hāwera Water Tower (Optional)</h2>
+  <img src="images/hawera_tower.jpg" alt="Hawera Water Tower">
 </div>
-</details>
 
-<details>
-<summary>
-  <div class="dot purple"></div>
-  <div class="main">
-    <div class="time">Day 1 – Night</div>
-    <div class="place">TSB Festival of Lights</div>
-    <div class="small">Pukekura Park</div>
-  </div>
-</summary>
-<div class="body">
-  <img class="photo" src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Festival_of_Lights_Pukekura_Park.jpg">
+<div class="card">
+  <h2>TSB Festival of Lights</h2>
+  <img src="images/lights.jpg" alt="Festival of Lights">
 </div>
-</details>
 
-<details>
-<summary>
-  <div class="dot good"></div>
-  <div class="main">
-    <div class="time">Day 2 – Morning</div>
-    <div class="place">King Edward Park (Hāwera)</div>
-    <div class="small">Playground stop</div>
-  </div>
-</summary>
-<div class="body">
-  <img class="photo" src="https://upload.wikimedia.org/wikipedia/commons/1/18/King_Edward_Park_Hawera.jpg">
-</div>
-</details>
-
+<div class="card">
+  <h2>King Edward Park</h2>
+  <img src="images/king_edward.jpg" alt="King Edward Park">
 </div>
 
 </div>
