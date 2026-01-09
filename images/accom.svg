@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<defs>
+  <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0" stop-color="#7dd3fc" stop-opacity="0.35"/>
+    <stop offset="1" stop-color="#a78bfa" stop-opacity="0.35"/>
+  </linearGradient>
+  <radialGradient id="r" cx="30%" cy="20%" r="80%">
+    <stop offset="0" stop-color="#34d399" stop-opacity="0.22"/>
+    <stop offset="1" stop-color="#0b1020" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="1600" height="900" fill="#0b1020"/>
+<rect width="1600" height="900" fill="url(#g)"/>
+<rect width="1600" height="900" fill="url(#r)"/>
+<g fill="none" stroke="#1f2a5a" stroke-width="6" opacity="0.8">
+  <path d="M120 720 C 420 520, 560 520, 820 620 S 1220 780, 1480 600" />
+  <path d="M150 220 C 420 320, 560 320, 840 240 S 1220 120, 1450 280" />
+</g>
+<g font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" text-anchor="middle">
+  <text x="800" y="420" font-size="72" font-weight="800" fill="#eef2ff">Accommodation</text>
+  <text x="800" y="500" font-size="36" font-weight="600" fill="#a5b4fc">2 Kerry Lane, Hāwera</text>
+  <text x="800" y="820" font-size="26" fill="#a5b4fc">Replace this placeholder with your own photo (same filename)</text>
+</g>
+</svg>

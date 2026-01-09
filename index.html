@@ -1,121 +1,99 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>New Plymouth Lights Trip Plan</title>
-
-<style>
-body{
-  margin:0;
-  font-family:system-ui,Segoe UI,Roboto,Arial;
-  background:#0b1020;
-  color:#eef2ff;
-}
-.wrap{max-width:1000px;margin:auto;padding:20px}
-.card{
-  background:#121836;
-  border:1px solid #1f2a5a;
-  border-radius:14px;
-  padding:18px;
-  margin-bottom:18px;
-}
-h1,h2{margin:0 0 10px}
-.sub{color:#a5b4fc}
-.contacts a{
-  display:inline-block;
-  margin:6px 6px 0 0;
-  padding:8px 12px;
-  border-radius:999px;
-  background:#0f172a;
-  border:1px solid #1f2a5a;
-  color:#eef2ff;
-  text-decoration:none;
-  font-weight:600;
-}
-img{
-  width:100%;
-  border-radius:12px;
-  border:1px solid #1f2a5a;
-  margin-top:10px;
-}
-.btn{
-  display:inline-block;
-  margin-top:10px;
-  padding:10px 14px;
-  border-radius:12px;
-  background:#0f172a;
-  border:1px solid #1f2a5a;
-  color:#eef2ff;
-  text-decoration:none;
-  font-weight:600;
-}
-iframe{
-  width:100%;
-  height:380px;
-  border:0;
-  border-radius:14px;
-}
-</style>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>New Plymouth Lights Trip Plan</title>
+  <link rel="stylesheet" href="assets/styles.css"/>
 </head>
-
 <body>
-<div class="wrap">
+  <div class="wrap">
+    <header class="hero">
+      <h1 class="title" id="tripTitle"></h1>
+      <p class="sub" id="tripSubtitle"></p>
 
-<div class="card">
-  <h1>🌟 New Plymouth Lights Trip Plan</h1>
-  <div class="sub">1 night · 2 days · Directions use your current location</div>
+      <div class="btnbar" id="contacts" style="margin-top:12px"></div>
 
-  <div class="contacts">
-    <a href="tel:+64276292070">📞 Gayani</a>
-    <a href="tel:0212953829">📞 Roshan</a>
-    <a href="tel:+64274445156">📞 Asitha</a>
-    <a href="tel:+64272251567">📞 Sanath</a>
+      <div class="grid">
+        <div class="card">
+          <h3>Accommodation</h3>
+          <div class="kv" id="accomKV"></div>
+          <div class="btnbar">
+            <a class="btn" id="accomMap" target="_blank" rel="noopener">🗺️ Open on Map</a>
+            <a class="btn" id="accomDir" target="_blank" rel="noopener">➡️ Get Directions</a>
+          </div>
+
+          <div class="note">
+            <strong>Optional stop toggle:</strong> include or hide the Hāwera Water Tower stop.
+          </div>
+          <div class="btnbar" style="margin-top:10px">
+            <label class="btn" style="cursor:pointer">
+              <input type="checkbox" id="toggleOptional" checked style="transform:scale(1.1); margin-right:8px"/>
+              Include optional Water Tower
+            </label>
+          </div>
+
+          <div class="btnbar" style="margin-top:12px">
+            <button class="btn secondary" id="btnLocate">📍 Use my location</button>
+            <button class="btn primary" id="btnFullRoute">🧭 Full route in Google Maps</button>
+          </div>
+
+          <div class="note">
+            On-page map shows all stops (markers + connecting line). For accurate driving route + total km/time, use “Full route in Google Maps”.
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Plan map (interactive)</h3>
+          <div id="map" class="map"></div>
+          <div class="note" id="mapStatus">Loading map…</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="sectionTitle">
+      <h2>Hourly weather</h2>
+      <div class="muted2">Live forecast (auto-fetch)</div>
+    </div>
+
+    <div class="card">
+      <div class="weatherControls">
+        <label class="pill">Location:
+          <select id="wxLoc"></select>
+        </label>
+        <label class="pill">Day:
+          <select id="wxDay"></select>
+        </label>
+        <button class="btn" id="wxRefresh">↻ Refresh</button>
+        <span class="pill purple" id="wxStatus">—</span>
+      </div>
+      <div style="margin-top:12px" id="wxTable"></div>
+      <div class="note">
+        For festival night: watch <strong>wind</strong> + <strong>temperature</strong>. Pack warm layers and a blanket for toddlers.
+      </div>
+    </div>
+
+    <div class="sectionTitle">
+      <h2>Timeline</h2>
+      <div class="muted2">Tap each item to expand</div>
+    </div>
+    <section id="timeline" style="display:grid; gap:12px"></section>
+
+    <div class="sectionTitle">
+      <h2>All stops</h2>
+      <div class="muted2">Quick access list</div>
+    </div>
+    <section id="stops" style="display:grid; gap:12px"></section>
+
+    <div class="card" style="margin-top:20px">
+      <h3>Replace images (no broken links)</h3>
+      <div class="note">
+        All images are local placeholders in <span class="mono">/images</span>. Replace any placeholder SVG with your own photo (same filename) to instantly upgrade visuals.
+      </div>
+    </div>
   </div>
-</div>
 
-<div class="card">
-  <h2>🗺️ Map Overview</h2>
-  <iframe
-    loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade"
-    src="https://www.google.com/maps?q=Pukekura+Park+New+Plymouth+New+Zealand&output=embed">
-  </iframe>
-
-  <a class="btn" target="_blank"
-     href="https://www.google.com/maps/dir/?api=1
-     &origin=Current+Location
-     &destination=Palmerston+North+New+Zealand
-     &waypoints=Bason+Botanic+Gardens+Whanganui|Hollard+Gardens+Kaponga|2+Kerry+Lane+Hawera|Pukekura+Park+New+Plymouth|King+Edward+Park+Hawera|Shane's+Greenhouses+Whanganui">
-     ➡️ Open Full Trip Route in Google Maps
-  </a>
-</div>
-
-<div class="card">
-  <h2>Bason Botanic Gardens</h2>
-  <img src="images/bason.jpg" alt="Bason Botanic Gardens">
-</div>
-
-<div class="card">
-  <h2>Hollard Gardens</h2>
-  <img src="images/hollard.jpg" alt="Hollard Gardens">
-</div>
-
-<div class="card">
-  <h2>Hāwera Water Tower (Optional)</h2>
-  <img src="images/hawera_tower.jpg" alt="Hawera Water Tower">
-</div>
-
-<div class="card">
-  <h2>TSB Festival of Lights</h2>
-  <img src="images/lights.jpg" alt="Festival of Lights">
-</div>
-
-<div class="card">
-  <h2>King Edward Park</h2>
-  <img src="images/king_edward.jpg" alt="King Edward Park">
-</div>
-
-</div>
+  <script src="assets/data.js"></script>
+  <script src="assets/app.js"></script>
 </body>
 </html>
